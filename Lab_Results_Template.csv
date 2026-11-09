@@ -1,0 +1,8 @@
+Case,Expected,Actual,Result,Evidence
+Rapid input,One action and commit,,,
+Hurt before active,No commit,,,
+Death during recovery,Dead remains terminal,,,
+Same visual,Playback progresses,,,
+Feedback off,Identical gameplay outcome,,,
+Low FPS crossing,Exactly one attempt,,,
+Respawn,Fresh Ready state and old cleanup,,,

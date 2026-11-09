@@ -1,0 +1,13 @@
+WEEK 6 Student_Starter
+SOURCE PROJECT: rebuild before opening. No prebuilt Module 6 binaries are supplied.
+
+1. Install Unreal 5.8, Visual Studio 2022 Game development with C++ and Windows SDK.
+2. From this CourseGame folder run Build.ps1 -EngineRoot YOUR_ENGINE_FOLDER.
+3. Run Setup_Resources.ps1 -EngineRoot YOUR_ENGINE_FOLDER. It saves four distinct placeholder flipbooks and L_Week06 using the supplied sprites and range.
+4. Run Open.ps1 -EngineRoot YOUR_ENGINE_FOLDER. Open Content/Course/Maps/L_Week06.
+5. Follow the Week 6 lab guide. Tasks are in Source/CourseGame/Week06.
+
+42 saved prerequisite assets and all placeholder source resources are included. No web downloads, import kit or earlier project merge are required. The four NEW Week06 flipbooks and map are generated locally by step 3, not pre-generated .uasset files in this ZIP. They reuse simple course art; assess behavior rather than artwork.
+Controls: A/D move, Space jump, J action, H damage 10, K lethal damage, G toggle feedback, T reset range, R respawn, V speed, Tab input gate.
+Testing: Developer PowerShell > Verify_Rules.ps1 -Baseline. Completed students run without -Baseline. Then use RUNTIME_CHECKLIST.txt.
+Build/play/asset generation have NOT been validated in Unreal because D: and E: are unavailable. Do the instructor preflight before distribution.

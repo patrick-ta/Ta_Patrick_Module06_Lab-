@@ -1,0 +1,14 @@
+UNREAL CHECKLIST - record actual outcome, do not mark PASS without running.
+Build succeeds; setup flag created; L_Week06 and four FB assets load.
+J: Attack then Ready, one W6_COMMIT and one accepted Week05 shot if spawn valid.
+J spam: one action, no additional projectile until recovery completes.
+J then H before 0.10 seconds: Hurt, zero commit for interrupted action.
+J then H after active: at most one commit and health mutation per projectile.
+K during recovery: Dead remains Dead after 2 seconds; J rejected.
+R/T: new pawn Ready; no lingering flash timer from old pawn.
+G off/on: identical action/shot/health trace, only color changes.
+ReducedEffects=true: no flash, same rules.
+Set t.MaxFPS 5 in console: crossing startup and recovery still yields one attempt.
+Same desired visual: playback position progresses instead of resetting each tick.
+Menu: no new request, world-time recovery continues; dead still cannot fire after closing.
+Compare completion rule suite with student baseline negative control.
