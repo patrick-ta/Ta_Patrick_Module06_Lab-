@@ -51,12 +51,12 @@ void UStateCombatComponent::UpdateVisual(){
  const auto V=Rules.Select(R->GetCharacterMovement()->IsFalling(),R->GetVelocity().X);
  UPaperFlipbook* Options[]={Idle.Get(),Run.Get(),Air.Get(),Attack.Get(),Hurt.Get(),Dead.Get()};UPaperFlipbook* Next=Options[int(V)];
  // LAB 5: replace/play a flipbook only when the desired asset changes.
- // TODO LAB 5: compare current asset before entry work{R->GetSprite()->SetFlipbook(Next);R->GetSprite()->SetLooping(V==Week06::Visual::Idle||V==Week06::Visual::Run);R->GetSprite()->PlayFromStart();}
- if (Next) {
-	R->GetSprite()->SetFlipbook(Next);
-	R->GetSprite()->SetLooping(V == Week06::Visual::Idle || V == Week06::Visual::Run);
-	R->GetSprite()->PlayFromStart();
- }
+  auto* Sprite=R->GetSprite();
+	if(Next && Sprite->GetFlipbook()!=Next){
+		Sprite->SetFlipbook(Next);
+		Sprite->SetLooping(V==Week06::Visual::Idle||V==Week06::Visual::Run);
+		Sprite->PlayFromStart();
+	}
 }
 void UStateCombatComponent::EndPlay(const EEndPlayReason::Type Reason){
  if(Health)Health->OnHealthChanged.RemoveDynamic(this,&UStateCombatComponent::HealthChanged);
