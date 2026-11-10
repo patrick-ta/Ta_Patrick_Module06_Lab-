@@ -1,8 +1,14 @@
 Case,Expected,Actual,Result,Evidence
-Rapid input,One action and commit,,,
-Hurt before active,No commit,,,
-Death during recovery,Dead remains terminal,,,
-Same visual,Playback progresses,,,
-Feedback off,Identical gameplay outcome,,,
-Low FPS crossing,Exactly one attempt,,,
-Respawn,Fresh Ready state and old cleanup,,,
+Rapid input,One action and commit,Rapid inputs  result in one action and commit.,PASS,"These checks pass in Verify_Rules: rapid repeat, still locked, one commit"
+Hurt before active,No commit,"Pressed J, and then H in quick sucession. State changed to attacking, then hurt, then ready. No shot was committed.",PASS,"These checks pass in Verify_Rules: cancel startup, hurt before active cancels"
+Death during recovery,Dead remains terminal,"Pressing J to commit shot, then pressing K to trigger death, does not result in the player returning back to ready state. The states progress like this: ready > attacking > dead.",PASS,"These checks pass in Verify_Rules: death terminal, dead rejects request, stale callback"
+Same visual,Playback progresses,"Animations play continuously, and flipbooks only change on state change.",PASS,"These checks pass in Verify_Rules: same visual no restart, new visual changes"
+Feedback off,Identical gameplay outcome,Pressing G to turn feedback off doesn't affect gameplay functionality,PASS,These checks pass in Verify_Rules: presentation does not change rules
+Low FPS crossing,Exactly one attempt,Functionality remains the same at low framerates.,PASS,"These checks pass in Verify_Rules: low FPS crosses entire action, low FPS once"
+Respawn,Fresh Ready state and old cleanup,"Pressing R after consuming ammo, getting hurt, or dying, results in a fresh state and cleanup.",PASS,"Logs show that restarting results in a fresh state: 
+LogTemp: Display: WEEK3_CONTEXT_INSTALLED: IMC_Gameplay
+LogTemp: Display: W6_STATE Ready -> Attacking generation=1
+LogTemp: Display: W6_REQUEST ACCEPTED_ACTION
+LogTemp: Display: W5_FIRE_ACCEPTED count=1 ammo=19 next=30.530649
+LogTemp: Display: W6_COMMIT attempt=1 spawned=1
+LogTemp: Display: W6_STATE Attacking -> Ready generation=1"
